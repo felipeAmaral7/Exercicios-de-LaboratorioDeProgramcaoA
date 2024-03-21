@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int substring(char *palavra1, char *palavra2){
+	
+	int tamPalavra1 = 0;
+	int tamPalavra2 = 0;
+	
+	while(palavra1[tamPalavra1] != '\0'){
+		tamPalavra1++;
+	}
+	while(palavra2[tamPalavra2] != '\0'){
+		tamPalavra2++;
+	}
+	
+	int ehSubstring = 0;
+	int cont = 0;
+	while(cont < tamPalavra2 && ehSubstring == 0){
+		
+		if(palavra1[0] == palavra2[cont]){
+			int ehSubstringTemp = 1;
+			int contador = cont;
+			int cont2 = 0;
+			while(cont2 < tamPalavra1 && ehSubstringTemp != 0){
+				if(palavra1[cont2] != palavra2[contador]){
+					ehSubstringTemp = 0;
+				}
+				contador++;
+				cont2++;
+			}
+			if(ehSubstringTemp != 0){
+				ehSubstring = 1;
+			}
+		}
+		cont++;
+	}
+	
+	return ehSubstring;
+	
+}
+
+int main(void){
+	
+	char palavra1[200];
+	char palavra2[200];
+	
+	char fim[4] = {'F', 'I', 'M'};
+		
+	while(scanf("%s", palavra1), scanf("%s", palavra2), substring(palavra1, fim) == 0){
+		
+		int resp = substring(palavra1, palavra2);
+		if(resp != 0){
+			printf("SIM\n");
+		}
+		else{
+			printf("NAO\n");
+		}
+	}
+}
