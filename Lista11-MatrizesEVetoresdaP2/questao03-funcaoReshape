@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+void reshape(int altura1, int largura1, int matriz1[][largura1],
+		int altura2, int largura2, int matriz2[][largura2])
+{
+
+	int vet[altura1*largura1];
+	
+	int contVet = 0;
+	for(int i = 0; i < altura1; i++){
+		for(int j =0; j < largura1; j++){
+			vet[contVet] = matriz1[i][j];
+			contVet++;
+		}
+	}
+	
+	contVet = 0;
+	for(int i = 0; i < altura2; i++){
+		for(int j = 0; j < largura2; j++){
+			matriz2[i][j] = vet[contVet];
+			contVet++;
+		}
+	}
+}
+
+int main(void)
+{
+	int altura1, largura1;
+	int altura2, largura2;
+
+	while (scanf("%d%d%d%d", &altura1, &largura1,
+				&altura2, &largura2) != EOF) {
+		int matriz1[altura1][largura1];
+		int matriz2[altura1][largura2];
+
+		for (int y = 0; y < altura1; y++) {
+			for (int x = 0; x < largura1; x++) {
+				scanf("%d", &matriz1[y][x]);
+			}
+		}
+
+		reshape(altura1, largura1, matriz1,
+				altura2, largura2, matriz2);
+
+		for (int y = 0; y < altura2; y++) {
+			printf("%d", matriz2[y][0]);
+			for (int x = 1; x < largura2; x++) {
+				printf(", %d", matriz2[y][x]);
+			}
+			printf("\n");
+		}
+		
+		printf("\n");
+	}
+}
