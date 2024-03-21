@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+/* Não altere o protótipo da função. Não use faça operações
+ * de E/S (scanf, print etc.) dentro da função.
+ */
+void produto(int x, int y, int *resultado)
+{
+	
+	*resultado = x * y;
+	
+}
+
+/* A função main() deve ter apenas as três variáveis que já
+ * estão declaradas. Leia dois números e use a função
+ * produto() para multiplicá-los.
+ */
+int main(void)
+{
+	int num1, num2;
+	int resultado;
+
+	scanf("%d %d", &num1, &num2);
+	
+	produto(num1, num2, &resultado);
+	
+	printf("%d", resultado);
+}
