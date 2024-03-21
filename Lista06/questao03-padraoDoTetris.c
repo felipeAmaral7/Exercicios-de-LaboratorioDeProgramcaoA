@@ -1,5 +1,4 @@
-/* NAO ALTERE ESTA PARTE DO CODIGO
- */
+
 #include <stdio.h>
 #include <stdlib.h>
 int printf(const char *fmt, ...)
@@ -9,8 +8,6 @@ int printf(const char *fmt, ...)
 	puts("Exemplo: putchar('#'); imprime uma vez o caracter #");
 	exit(EXIT_FAILURE);
 }
-/* NAO ALTERE O CODIGO ACIMA
- */
 
 int main(void){
 	
